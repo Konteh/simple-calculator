@@ -1,8 +1,15 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
-app.get("/home", (req,res)=>{
-    res.send('Hello from simple calculator')
+app.use(bodyParser.urlencoded({extended:true}))
+app.get("/", (req,res)=>{
+    res.sendFile(__dirname + "/index.html")
+});
+
+app.post("/", (req,res) =>{
+    console.log(req.body)
+    res.send("received the parse-body")
 })
 
 app.listen(3000, () =>{
