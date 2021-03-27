@@ -8,8 +8,11 @@ app.get("/", (req,res)=>{
 });
 
 app.post("/", (req,res) =>{
-    console.log(req.body)
-    res.send("received the parse-body")
+    let num1 = Number(req.body.num1);
+    let num2 = Number(req.body.num2);
+     let result = num1 + num2;
+
+     res.send("The result of adding the number is " + result)
 })
 
 app.listen(3000, () =>{
