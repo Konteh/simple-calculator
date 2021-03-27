@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}))
+
+// SIMPLE CALCULATOR 
 app.get("/", (req,res)=>{
     res.sendFile(__dirname + "/index.html")
 });
@@ -15,6 +17,7 @@ app.post("/", (req,res) =>{
      res.send("The result of adding the number is " + result)
 })
 
+// BMI CALCULATOR
 app.get("/bmi", (req,res) =>{
     res.sendFile(__dirname + "/bmi.html" )
 })
