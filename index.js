@@ -15,6 +15,19 @@ app.post("/", (req,res) =>{
      res.send("The result of adding the number is " + result)
 })
 
+app.get("/bmi", (req,res) =>{
+    res.sendFile(__dirname + "/bmi.html" )
+})
+
+app.post("/bmi", (req,res)=>{
+
+    let weight = parseFloat(req.body.weight);
+    let height = parseFloat(req.body.height);
+
+    let bmi = weight / (height * height);
+    res.send("Your bmi is " + bmi);
+})
+
 app.listen(3000, () =>{
     console.log('listening from port 3000')
 })
